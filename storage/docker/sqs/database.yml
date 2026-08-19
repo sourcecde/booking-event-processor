@@ -1,0 +1,6 @@
+---
+queues:
+  finance-queue-production:
+    QueueName: finance-queue-production
+    Arn: arn:aws:sqs:us-east-1:0b8374ab783bff593d9a9b952b7e6248:finance-queue-production
+    Attributes: {}

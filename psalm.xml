@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<psalm
+    errorLevel="8"
+    resolveFromConfigFile="true"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+>
+    <projectFiles>
+        <directory name="app" />
+        <directory name="database/factories" />
+        <directory name="database/seeders" />
+        <ignoreFiles>
+            <directory name="vendor" />
+        </ignoreFiles>
+    </projectFiles>
+    <issueHandlers>
+        <!-- Suppress UnusedClass for classes that are used via DI/routing -->
+        <UnusedClass>
+            <errorLevel type="suppress">
+                <file name="app/Console/Commands/ConsumerCommand.php"/>
+                <file name="app/Console/Kernel.php"/>
+                <file name="app/Events/Event.php"/>
+                <file name="app/Exceptions/Handler.php"/>
+                <file name="app/Http/Controllers/BookingController.php"/>
+                <file name="app/Http/Middleware/Authenticate.php"/>
+                <file name="app/Providers/AppServiceProvider.php"/>
+                <file name="app/Providers/AuthServiceProvider.php"/>
+                <file name="app/Providers/ConsumerProvider.php"/>
+                <file name="app/Providers/EventServiceProvider.php"/>
+                <file name="database/factories/UserFactory.php"/>
+                <file name="database/seeders/DatabaseSeeder.php"/>
+            </errorLevel>
+        </UnusedClass>
+        <!-- Suppress PossiblyUnusedMethod for interface methods -->
+        <PossiblyUnusedMethod>
+            <errorLevel type="suppress">
+                <file name="app/Services/Interfaces/Sqs/SqsServiceInterface.php"/>
+            </errorLevel>
+        </PossiblyUnusedMethod>
+    </issueHandlers>
+</psalm>

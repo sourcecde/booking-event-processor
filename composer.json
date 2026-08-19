@@ -1,0 +1,70 @@
+{
+    "name": "laravel/lumen",
+    "description": "The Laravel Lumen Framework.",
+    "keywords": ["framework", "laravel", "lumen"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": "^8.4",
+        "guzzlehttp/guzzle": "^7.10",
+        "laravel/lumen-framework": "^11.0"
+    },
+    "require-dev": {
+        "enlightn/security-checker": "^1.10",
+        "escapestudios/symfony2-coding-standard": "^3.12",
+        "fakerphp/faker": "^1.23",
+        "mockery/mockery": "^1.4.4",
+        "phpmd/phpmd": "^2.12",
+        "phpro/grumphp": "^2.12",
+        "phpunit/phpunit": "^9.0",
+        "sebastian/phpcpd": "^6.0",
+        "squizlabs/php_codesniffer": "^3.6",
+        "vimeo/psalm": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "cache:clear": "@php artisan cache:clear",
+        "dotenv:create": "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+        "phpunit:test": [
+            "@phpunit:phpunit"
+        ],
+        "phpunit:phpunit": [
+            "@php ./bin/phpunit --stderr --log-junit ./test-reports/junit.xml"
+        ],
+        "phpunit:test:coverage": [
+            "./bin/phpunit --stderr --configuration=phpunit-coverage.xml --coverage-clover test-reports/junit-coverage.xml --log-junit ./test-reports/junit.xml"
+        ],
+        "phpunit:test:coverage:html": [
+            "@putenv XDEBUG_MODE=coverage",
+            "@php ./bin/phpunit --stderr --coverage-text --configuration=phpunit-coverage.xml --coverage-clover test-reports/junit-coverage.xml --coverage-html test-reports/coverage-html --log-junit ./test-reports/junit.xml"
+        ],
+        "code:check": [
+            "@php ./bin/grumphp run"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "bin-dir": "bin",
+        "allow-plugins": {
+            "phpro/grumphp": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

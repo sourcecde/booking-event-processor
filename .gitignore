@@ -1,0 +1,7 @@
+.env
+.env.testing
+.idea/
+.phpunit.result.cache
+test-reports/
+vendor/
+bin/

@@ -1,0 +1,19 @@
+version: "3"
+services:
+  finance_task:
+    build: .
+    networks: ['finance_task_net']
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html:cached
+
+  finance_task_sqs:
+    image: airdock/fake-sqs
+    networks: [ 'finance_task_net' ]
+    volumes:
+      - ./storage/docker/sqs:/srv/ruby/fake-sqs:cached
+    ports:
+      - "4568:4568"
+
+networks: {finance_task_net: {}}
