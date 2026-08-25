@@ -5,3 +5,5 @@
 test-reports/
 vendor/
 bin/
+.DS_Store
+.phpactor.json
