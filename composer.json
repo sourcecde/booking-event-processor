@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": "^8.4",
+        "aws/aws-sdk-php": "<3.280",
         "guzzlehttp/guzzle": "^7.10",
         "laravel/lumen-framework": "^11.0"
     },
